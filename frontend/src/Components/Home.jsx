@@ -15,7 +15,7 @@ const Home = () =>
                     <p style={{marginLeft: "10%", fontSize: "1.2em"}}>© 2020 - myLetters - All Rights Reserved</p>
                 </div>
             </div>
-            <Link to="/game" id="play">PLAY</Link>
+            <Link to="/categories" id="play">PLAY</Link>
         </div>
     )
 }
