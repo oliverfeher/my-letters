@@ -2,7 +2,7 @@ import React from "react";
 import "../stylesheets/App.css"
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./Home";
-import Game from "./Game";
+import GameLetters from "./GameLetters";
 import Categories from "./Categories";
 
 class App extends React.Component
@@ -13,7 +13,7 @@ class App extends React.Component
             <BrowserRouter>
                 <Route path="/" exact component={Home}/>
                 <Route path="/categories" exact component={Categories}/>
-                <Route path="/game" exact component={Game}/>
+                <Route path="/game/letters" exact component={GameLetters}/>
 
             </BrowserRouter>
         )

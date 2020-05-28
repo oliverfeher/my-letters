@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import WaterMelon from "../images/watermelon.png";
 import Apple from "../images/fruit.png"
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -9,7 +10,7 @@ const recognition = new SpeechRecognition();
 let counter = 0;
 let recording = false;
 
-class Game extends React.Component
+class GameLetters extends React.Component
 {
     handleOnStart = () =>
     {
@@ -101,9 +102,10 @@ class Game extends React.Component
                 <img src={WaterMelon}></img>
                 <div id="game-word-container">{this.renderWord("watermelon")}</div>
                 <p id="play" onClick={this.handleOnStart}>PLAY</p>
+                <Link to={"/"} className="back-button">EXIT</Link>
             </div>
         )
     }
 }
 
-export default Game;
+export default GameLetters;
