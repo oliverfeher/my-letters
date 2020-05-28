@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-image: url("../images/background.png");
+    background-size: cover;
+    font-family: 'Anton', sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#main-container {
+    width: 100%;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+}
+
+#title-container {
+    display: flex;
+    align-items: center;
+    margin-left: 29%;    
+}
+
+#title-text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#minion-logo {
+    width: 10%;
+}
+
+#headphones {
+    width: 20%;
+    position: fixed;
+    top: 22%;
+    right: 35.5%;
+}
+
+#play {
+    width: 10%;
+    align-self: center;
+    background-color: #FFC107;
+    border: none;
+    font-size: 2em;
+    border-radius: 25px;
+    font-family: 'Anton', sans-serif;
+}
+
+#play:hover {
+    cursor: pointer;
+}
