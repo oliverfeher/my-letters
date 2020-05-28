@@ -52,6 +52,9 @@ html {
     margin-top: 2%;
     width: 15%;
     align-self: center;
+    text-align: center;
+    text-decoration: none;
+    color: black;
     background-color: #FFC107;
     border: none;
     font-size: 2em;
