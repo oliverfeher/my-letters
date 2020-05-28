@@ -35,10 +35,21 @@ class Game extends React.Component
             {
                 voiceResult = "L"
             }
+            else if(voiceResult === "AR")
+            {
+                voiceResult = "R"
+            }
+            else if(voiceResult === "TEA")
+            {
+                voiceResult = "T"
+            }
+            else if(voiceResult === "END")
+            {
+                voiceResult = "N"
+            }
             if(word[counter].innerText === voiceResult)
             {
                 console.log(voiceResult)
-                console.log("correct");
                 word[counter].style.color = "green";
                 if(counter < word.length)
                 {
@@ -52,7 +63,6 @@ class Game extends React.Component
             else
             {
                 console.log(voiceResult)
-                console.log("incorrect")
                 word[counter].style.color = "red";
                 if(counter < word.length)
                 {
@@ -74,22 +84,22 @@ class Game extends React.Component
         console.log("recording")
         setTimeout(() => {
             recognition.stop();
-        }, 1000);
-        recognition.onend = function() { recording = false}
+        }, 2000);
+        recognition.onend = function() { recording = false }
     }
 
     renderWord = (word) =>
     {
-        let arr = word.split("")
-        return arr.map(letter => <p className="word-letters">{letter.toUpperCase()}</p>)
+        let arr = word.split(" ")
+        return arr.map(letter => <p className="word-letters" style={{marginLeft: "5px"}}>{letter.toUpperCase()}</p>)
     }
 
     render()
     {
         return (
             <div id="game">
-                <img src={Apple}></img>
-                <div id="game-word-container">{this.renderWord("apple")}</div>
+                <img src={WaterMelon}></img>
+                <div id="game-word-container">{this.renderWord("watermelon")}</div>
                 <p id="play" onClick={this.handleOnStart}>PLAY</p>
             </div>
         )
