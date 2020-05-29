@@ -48,6 +48,10 @@ class GameLetters extends React.Component
             {
                 voiceResult = "N"
             }
+            else if(voiceResult === "AND")
+            {
+                voiceResult = "N"
+            }
             if(word[counter].innerText === voiceResult)
             {
                 console.log(voiceResult)
@@ -91,18 +95,18 @@ class GameLetters extends React.Component
 
     renderWord = (word) =>
     {
-        let arr = word.split(" ")
-        return arr.map(letter => <p className="word-letters" style={{marginLeft: "5px"}}>{letter.toUpperCase()}</p>)
+        let arr = word.split("")
+        return arr.map(letter => <p className="word-letters">{letter.toUpperCase()}</p>)
     }
 
     render()
     {
         return (
             <div id="game">
-                <img src={WaterMelon}></img>
+                <img src={WaterMelon} className="game-img"></img>
                 <div id="game-word-container">{this.renderWord("watermelon")}</div>
                 <p id="play" onClick={this.handleOnStart}>PLAY</p>
-                <Link to={"/"} className="back-button">EXIT</Link>
+                <Link to={"/categories"} className="back-button">EXIT</Link>
             </div>
         )
     }
