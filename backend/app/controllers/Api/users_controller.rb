@@ -8,9 +8,4 @@ class Api::UsersController < ApplicationController
         }
     end
 
-    def find
-        @user = User.find_by(id: params[:id])
-        render json: @user.to_json
-    end
-
 end
