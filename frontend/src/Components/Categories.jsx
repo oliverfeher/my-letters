@@ -14,9 +14,14 @@ class Categories extends React.Component
         this.props.history.push("/game/letters");
     }
 
-    handleSelectionMath = (route) =>
+    handleSelectionMath = () =>
     {
         this.props.history.push("/game/math");
+    }
+
+    handleSelectionWords = () =>
+    {
+        this.props.history.push("/game/words");
     }
 
     render()
@@ -25,7 +30,7 @@ class Categories extends React.Component
             <div id="category-section">
                 <h1>Select category!</h1>
                 <div id="categories">
-                    <Category categoryName="WORDS" imageSrc={Words} handleSelection={this.handleSelection}/>
+                    <Category categoryName="WORDS" imageSrc={Words} handleSelection={this.handleSelectionWords}/>
                     <Category categoryName="MATH" imageSrc={Math} handleSelection={this.handleSelectionMath}/>
                     <Category categoryName="LETTERS" imageSrc={Letters} handleSelection={this.handleSelection}/>
                 </div>
