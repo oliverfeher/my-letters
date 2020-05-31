@@ -42,7 +42,7 @@ class Login extends React.Component
         })
         .then(resp => {
             localStorage.setItem("token", resp.data.token);
-            this.props.history.push("/dashboard")
+            this.props.history.push("/dashboard");
         })
     }
 
