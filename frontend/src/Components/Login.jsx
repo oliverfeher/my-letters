@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Login extends React.Component
 {
@@ -26,6 +27,16 @@ class Login extends React.Component
         this.setState({
             password: event.target.value
         })
+    }
+
+    handleOnSubmit = event =>
+    {
+        event.preventDefault();
+        axios.post("http://localhost:3001/api/login",
+        {
+            user: this.state
+        })
+        .then(resp => console.log(resp))
     }
 
     render()
