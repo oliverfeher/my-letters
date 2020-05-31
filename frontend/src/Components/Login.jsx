@@ -45,15 +45,15 @@ class Login extends React.Component
     render()
     {
         return (
-            <div id="login-signup">
+            <div id="login-signup-container">
                 <h1>LOGIN</h1>
                 <form id="login-signup" onSubmit={this.handleOnSubmit}>
-                    <label>E-MAIL:</label>
-                    <input type="email" onChange={this.handleOnChangeEmail}/>
-                    <label>PASSWORD:</label>
-                    <input type="password" onChange={this.handleOnChangePassword}/>
+                    <label className="label-text">E-MAIL:</label>
+                    <input type="email" onChange={this.handleOnChangeEmail} className="input-field"/>
+                    <label className="label-text">PASSWORD:</label>
+                    <input type="password" onChange={this.handleOnChangePassword} className="input-field"/>
                     <input type="submit" value="LOGIN"/>
-                    <Link to={"/signup"}>SIGNUP</Link>
+                    <Link to={"/signup"} className="sign-up-button">SIGNUP</Link>
                 </form>
             </div>
         )
