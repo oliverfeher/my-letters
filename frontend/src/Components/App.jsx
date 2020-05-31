@@ -22,7 +22,6 @@ class App extends React.Component
                 <Route path="/game/letters" exact component={GameLetters}/>
                 <Route path="/game/math" exact component={GameMath}/>
                 <Route path="/game/words" exact component={GameWords}/>
-
             </BrowserRouter>
         )
     }
