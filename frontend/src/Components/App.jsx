@@ -6,6 +6,7 @@ import GameLetters from "./GameLetters";
 import Categories from "./Categories";
 import GameMath from "./GameMath";
 import GameWords from "./GameWords";
+import Login from "./Login";
 
 class App extends React.Component
 {
@@ -14,6 +15,7 @@ class App extends React.Component
         return (
             <BrowserRouter>
                 <Route path="/" exact component={Home}/>
+                <Route path="/login" exact component={Login}/>
                 <Route path="/categories" exact component={Categories}/>
                 <Route path="/game/letters" exact component={GameLetters}/>
                 <Route path="/game/math" exact component={GameMath}/>
