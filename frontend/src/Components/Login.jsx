@@ -13,6 +13,7 @@ class Login extends React.Component
         }
     }
 
+    // CONTROLLED FORM EMAIL
     handleOnChangeEmail = event =>
     {
         event.persist();
@@ -20,7 +21,8 @@ class Login extends React.Component
             email: event.target.value
         })
     }
-
+    
+    // CONTROLLED FORM PASSWORD
     handleOnChangePassword = event =>
     {
         event.persist();
@@ -28,7 +30,9 @@ class Login extends React.Component
             password: event.target.value
         })
     }
-
+    
+    // CONTROLLED FORM SUBMIT + SET JWT INTO LOCAL STORAGE
+    // TODO: ERROR MSG + VALIDATION
     handleOnSubmit = event =>
     {
         event.preventDefault();
@@ -42,6 +46,7 @@ class Login extends React.Component
         })
     }
 
+    // CONDITIONAL RENDERING: IF TOKEN PUSH TO DASHBOARD ELSE RENDER LOGIN FORM
     render()
     {
         if(localStorage.token)
