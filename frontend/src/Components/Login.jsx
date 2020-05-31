@@ -4,9 +4,9 @@ import axios from "axios";
 
 class Login extends React.Component
 {
-    constructor()
+    constructor(props)
     {
-        super();
+        super(props);
         this.state = {
             email: "",
             password: ""
@@ -44,19 +44,27 @@ class Login extends React.Component
 
     render()
     {
-        return (
-            <div id="login-signup-container">
-                <h1>LOGIN</h1>
-                <form id="login-signup" onSubmit={this.handleOnSubmit}>
-                    <label className="label-text">E-MAIL:</label>
-                    <input type="email" onChange={this.handleOnChangeEmail} className="input-field"/>
-                    <label className="label-text">PASSWORD:</label>
-                    <input type="password" onChange={this.handleOnChangePassword} className="input-field"/>
-                    <input type="submit" value="LOGIN"/>
-                    <Link to={"/signup"} className="sign-up-button">SIGNUP</Link>
-                </form>
-            </div>
-        )
+        if(localStorage.token)
+        {
+            this.props.history.push("/dashboard");
+            return null;
+        }
+        else
+        {
+            return (
+                <div id="login-signup-container">
+                    <h1>LOGIN</h1>
+                    <form id="login-signup" onSubmit={this.handleOnSubmit}>
+                        <label className="label-text">E-MAIL:</label>
+                        <input type="email" onChange={this.handleOnChangeEmail} className="input-field"/>
+                        <label className="label-text">PASSWORD:</label>
+                        <input type="password" onChange={this.handleOnChangePassword} className="input-field"/>
+                        <input type="submit" value="LOGIN"/>
+                        <Link to={"/signup"} className="sign-up-button">SIGNUP</Link>
+                    </form>
+                </div>
+            )
+        }
     }
 
 }
