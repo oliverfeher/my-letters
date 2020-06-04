@@ -12,11 +12,11 @@ class Dashboard extends React.Component
 
     componentDidMount = () =>
     {
-        axios.post("http://localhost:3001/api/users/authorize",
-        {
-            token: localStorage.token
-        })
-        .then(resp => console.log(resp))
+        // axios.post("http://localhost:3001/api/users/authorize",
+        // {
+        //     token: localStorage.token
+        // })
+        // .then(resp => console.log(resp))
     }
 
     render()

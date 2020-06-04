@@ -8,6 +8,7 @@ class Api::SessionsController < ApplicationController
         if @user && @user.authenticate(user_params[:password])
             token = JWT.encode({user_id: @user.id}, "t3sts3cr3t")
             render json: {
+                user: @user,
                 token: token
             }
         else

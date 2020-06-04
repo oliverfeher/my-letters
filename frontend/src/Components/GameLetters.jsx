@@ -19,11 +19,13 @@ class GameLetters extends React.Component
         if(counter === 0)
         {
             this.spellCheck();
-            document.querySelector("#play").innerText = "NEXT"
+            word[counter].style.fontSize = "3em";
+            document.querySelector("#play").innerText = "NEXT";
         }
         else if (word[counter - 1].style.color === "red" || word[counter - 1].style.color === "green")
         {
             this.spellCheck();
+            word[counter].style.fontSize = "3em";
         }
 
         recognition.onresult = (event) => {

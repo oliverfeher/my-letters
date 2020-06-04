@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { login } from "../Redux/actions/user";
+import { connect } from "react-redux";
 
 class Login extends React.Component
 {
@@ -36,20 +37,22 @@ class Login extends React.Component
     handleOnSubmit = event =>
     {
         event.preventDefault();
-        axios.post("http://localhost:3001/api/login",
-        {
-            user: this.state
-        })
-        .then(resp => {
-            localStorage.setItem("token", resp.data.token);
-            this.props.history.push("/dashboard");
-        })
+        // axios.post("http://localhost:3001/api/login",
+        // {
+        //     user: this.state
+        // })
+        // .then(resp => {
+        //     localStorage.setItem("token", resp.data.token);
+        //     this.props.history.push("/dashboard");
+        // })
+        this.props.login({user: this.state})
+        .then(this.props.history.push("/dashboard"));
     }
 
     // CONDITIONAL RENDERING: IF TOKEN PUSH TO DASHBOARD ELSE RENDER LOGIN FORM
     render()
     {
-        if(localStorage.token)
+        if(this.props.user)
         {
             this.props.history.push("/dashboard");
             return null;
@@ -74,4 +77,4 @@ class Login extends React.Component
 
 }
 
-export default Login;
+export default connect(({user}) => {return {user}}, {login})(Login);

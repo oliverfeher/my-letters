@@ -1,6 +1,8 @@
 import React from "react";
 import "../stylesheets/App.css"
 import { BrowserRouter, Route } from "react-router-dom";
+import { checkToken } from "../Redux/actions/user";
+import { connect } from "react-redux";
 import Home from "./Home";
 import GameLetters from "./GameLetters";
 import Categories from "./Categories";
@@ -11,6 +13,13 @@ import Dashboard from "./Dashboard";
 
 class App extends React.Component
 {
+
+    componentDidMount = () =>
+    {
+        this.props.checkToken();
+    }
+
+
     render()
     {
         return (
@@ -27,4 +36,4 @@ class App extends React.Component
     }
 }
 
-export default App;
+export default connect(null, { checkToken })(App);
