@@ -270,12 +270,20 @@ input[type=submit]:hover {
 }
 
 #scores {
-    margin-left: 5%;
+    margin: 5% 0 5% 0;
     flex-direction: column;
-    align-self: flex-start;
+    align-self: center;
+    width: 100%;
+}
+#scores p {
+    font-size: 1.3em;
 }
 
 .user-score-data {
-    display: flex;
-    flex-direction: row;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }

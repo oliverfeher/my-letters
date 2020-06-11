@@ -26,11 +26,12 @@ class Dashboard extends React.Component
                     <div id="dashboard-main-container">
                         <div className="dashboard-sub-container">
                             <h2>SCORES</h2>
-                            <div id="scores-mistakes">
-                                <p>scores</p>
-                                <p>mistakes</p>
-                            </div>
                             <div id="scores">
+                                <div className="user-score-data">
+                                    <p></p>
+                                    <p>scores</p>
+                                    <p>mistakes</p>
+                                </div>
                                 <div className="user-score-data">
                                     <p>MATH</p>
                                     <p style={{color: "green"}}>{this.props.user.math_score}</p>
