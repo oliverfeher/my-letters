@@ -31,9 +31,21 @@ class Dashboard extends React.Component
                                 <p>mistakes</p>
                             </div>
                             <div id="scores">
-                                <p>MATH</p>
-                                <p>WORDS</p>
-                                <p>LETTERS</p>
+                                <div className="user-score-data">
+                                    <p>MATH</p>
+                                    <p style={{color: "green"}}>{this.props.user.math_score}</p>
+                                    <p style={{color: "red"}}>{this.props.user.math_mistakes}</p>
+                                </div>
+                                <div className="user-score-data">
+                                    <p>WORDS</p>
+                                    <p style={{color: "green"}}>{this.props.user.words_score}</p>
+                                    <p style={{color: "red"}}>{this.props.user.words_mistakes}</p>
+                                </div>
+                                <div className="user-score-data">
+                                    <p>LETTERS</p>
+                                    <p style={{color: "green"}}>{this.props.user.letters_score}</p>
+                                    <p style={{color: "red"}}>{this.props.user.letters_mistakes}</p>
+                                </div>
                             </div>
                         </div>
                         <div style={{width: "10%"}}></div>

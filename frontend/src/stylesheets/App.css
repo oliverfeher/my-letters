@@ -274,3 +274,8 @@ input[type=submit]:hover {
     flex-direction: column;
     align-self: flex-start;
 }
+
+.user-score-data {
+    display: flex;
+    flex-direction: row;
+}
