@@ -8,4 +8,16 @@ class Api::UsersController < ApplicationController
         }
     end
 
+    def update
+        @user = User.find_by(id: params[:id])
+
+        case params[:type]
+        when "math_mistake"
+            @user.increase_mistakes("math")
+        when "math_score"
+            @user.increase_scores("math")
+        end
+        render json: @user
+    end
+
 end

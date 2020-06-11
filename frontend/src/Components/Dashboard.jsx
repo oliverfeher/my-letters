@@ -25,7 +25,7 @@ class Dashboard extends React.Component
                     <h1>DASHBOARD</h1>
                     <div id="dashboard-main-container">
                         <div className="dashboard-sub-container">
-                            <h2>SCORES</h2>
+                            <h2>SCORE BOARD</h2>
                             <div id="scores">
                                 <div className="user-score-data">
                                     <p></p>
@@ -49,7 +49,7 @@ class Dashboard extends React.Component
                                 </div>
                             </div>
                         </div>
-                        <div style={{width: "10%"}}></div>
+                        <div style={{width: "5%"}}></div>
 
                         <div className="dashboard-sub-container">
                             <h2>REQUESTS</h2>

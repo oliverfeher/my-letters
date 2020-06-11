@@ -9,6 +9,10 @@ export const user = (state = {}, action) =>
     {
         return {};
     }
+    else if(action.type === "UPDATE_USER")
+    {
+        return action.payload
+    }
     else
     {
         return state;

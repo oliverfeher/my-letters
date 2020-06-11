@@ -1,4 +1,5 @@
 import axios from "axios";
+import jwt from "jsonwebtoken";
 
 const setUser = (user) =>
 {
@@ -16,6 +17,19 @@ export const login = (state) =>
             dispatch(setUser(resp.data.user))
         })
         
+    }
+}
+
+export const updateUser = (type) =>
+{
+    let { user_id } = jwt.decode(localStorage.token);
+    return (dispatch) =>
+    {
+        return axios.patch(`http://localhost:3001/api/users/${user_id}`, {type: type})
+        .then(resp =>
+            {
+                dispatch({type: "UPDATE_USER", payload: resp.data})
+            })
     }
 }
 

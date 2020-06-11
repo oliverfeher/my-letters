@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { updateUser } from "../Redux/actions/user";
 import WaterMelon from "../images/watermelon.png";
 import Apple from "../images/fruit.png"
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -29,6 +31,7 @@ class GameMath extends React.Component
                 result.innerText = "Correct!"
                 result.style.color = "green";
                 container.style.borderColor = "green";
+                this.props.updateUser("math_score")
             }
             else
             {
@@ -37,6 +40,7 @@ class GameMath extends React.Component
                 result.innerText = "Incorrect!"
                 result.style.color = "red";
                 container.style.borderColor = "red";
+                this.props.updateUser("math_mistake")
             }
         }
     }
@@ -67,4 +71,4 @@ class GameMath extends React.Component
     }
 }
 
-export default GameMath;
+export default connect(({user}) => {return {user}}, { updateUser })(GameMath);
