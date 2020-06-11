@@ -237,3 +237,12 @@ input[type=submit]:hover {
     background-color: #FFC107;
 }
 
+#dashboard-main-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.dashboard-sub-container {
+    background-color: white;
+    border: 3px solid black;
+}

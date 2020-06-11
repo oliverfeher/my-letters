@@ -37,14 +37,6 @@ class Login extends React.Component
     handleOnSubmit = event =>
     {
         event.preventDefault();
-        // axios.post("http://localhost:3001/api/login",
-        // {
-        //     user: this.state
-        // })
-        // .then(resp => {
-        //     localStorage.setItem("token", resp.data.token);
-        //     this.props.history.push("/dashboard");
-        // })
         this.props.login({user: this.state})
         .then(this.props.history.push("/dashboard"));
     }

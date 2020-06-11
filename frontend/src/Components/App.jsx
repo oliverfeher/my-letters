@@ -16,7 +16,10 @@ class App extends React.Component
 
     componentDidMount = () =>
     {
-        this.props.checkToken();
+        if(localStorage.token)
+        {
+            this.props.checkToken();
+        }
     }
 
 

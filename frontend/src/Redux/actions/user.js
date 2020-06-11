@@ -30,7 +30,6 @@ export const checkToken = () =>
             })
     }
 }
-
 export const logout = () =>
 {
     return (dispatch) =>

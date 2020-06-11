@@ -1,6 +1,5 @@
 import React from "react";
-import axios from "axios"
-import jwt from "jsonwebtoken";
+import { connect } from "react-redux";
 
 class Dashboard extends React.Component
 {
@@ -12,19 +11,39 @@ class Dashboard extends React.Component
 
     componentDidMount = () =>
     {
-        // axios.post("http://localhost:3001/api/users/authorize",
-        // {
-        //     token: localStorage.token
-        // })
-        // .then(resp => console.log(resp))
+    }
+    
+    componentDidUpdate = () =>
+    {
+        console.log("update");
+        console.log(this.props.user.id)
     }
 
+    
     render()
     {
         return (
-            <div>Dashboard</div>
+            <div>
+                <h1>DASHBOARD</h1>
+                <div id="dashboard-main-container">
+                    <div className="dashboard-sub-container">
+                        <h2>SCORES</h2>
+                        <div>
+                            <h3>MATH</h3>
+                            <h3>WORDS</h3>
+                            <h3>LETTERS</h3>
+                        </div>
+                    </div>
+
+                    <div className="dashboard-sub-container">
+                        <h2>REQUESTS</h2>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
         )
+
     }
 }
 
-export default Dashboard;
+export default connect(({user}) => {return {user}})(Dashboard);
