@@ -4,6 +4,7 @@ import Category from "./Category";
 import Math from "../images/math.png";
 import Words from "../images/words.png";
 import Letters from "../images/letters.png";
+import { connect } from "react-redux";
 
 
 class Categories extends React.Component
@@ -26,18 +27,26 @@ class Categories extends React.Component
 
     render()
     {
-        return (
-            <div id="category-section">
-                <h1>Select category!</h1>
-                <div id="categories">
-                    <Category categoryName="WORDS" imageSrc={Words} handleSelection={this.handleSelectionWords}/>
-                    <Category categoryName="MATH" imageSrc={Math} handleSelection={this.handleSelectionMath}/>
-                    <Category categoryName="LETTERS" imageSrc={Letters} handleSelection={this.handleSelection}/>
+        if(this.props.user.id)
+        {
+            return (
+                <div id="category-section">
+                    <h1>Select category!</h1>
+                    <div id="categories">
+                        <Category categoryName="WORDS" imageSrc={Words} handleSelection={this.handleSelectionWords}/>
+                        <Category categoryName="MATH" imageSrc={Math} handleSelection={this.handleSelectionMath}/>
+                        <Category categoryName="LETTERS" imageSrc={Letters} handleSelection={this.handleSelection}/>
+                    </div>
+                    <Link to={"/dashboard"} className="back-button">BACK</Link>
                 </div>
-                <Link to={"/dashboard"} className="back-button">BACK</Link>
-            </div>
-        )
+            )
+        }
+        else
+        {
+            this.props.history.push("/login");
+            return null;
+        }
     }
 }
 
-export default Categories;
+export default connect(({user}) => {return {user}})(Categories);
