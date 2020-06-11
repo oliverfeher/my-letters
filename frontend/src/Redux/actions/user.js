@@ -34,6 +34,7 @@ export const logout = () =>
 {
     return (dispatch) =>
     {
+        console.log("loggin out")
         localStorage.removeItem("token");
         dispatch({type: "LOGOUT"});
     } 

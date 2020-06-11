@@ -44,7 +44,7 @@ class Login extends React.Component
     // CONDITIONAL RENDERING: IF TOKEN PUSH TO DASHBOARD ELSE RENDER LOGIN FORM
     render()
     {
-        if(this.props.user)
+        if(this.props.user.id !== undefined)
         {
             this.props.history.push("/dashboard");
             return null;

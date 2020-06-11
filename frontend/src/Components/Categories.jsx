@@ -34,7 +34,7 @@ class Categories extends React.Component
                     <Category categoryName="MATH" imageSrc={Math} handleSelection={this.handleSelectionMath}/>
                     <Category categoryName="LETTERS" imageSrc={Letters} handleSelection={this.handleSelection}/>
                 </div>
-                <Link to={"/"} className="back-button">BACK</Link>
+                <Link to={"/dashboard"} className="back-button">BACK</Link>
             </div>
         )
     }
