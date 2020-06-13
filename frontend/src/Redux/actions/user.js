@@ -13,8 +13,15 @@ export const login = (state) =>
         return axios.post("http://localhost:3001/api/login", state)
         .then(resp => 
         {
-            localStorage.setItem("token", resp.data.token);
-            dispatch(setUser(resp.data.user))
+            if(!resp.data.token)
+            {
+                dispatch(setUser("error"))
+            }
+            else
+            {
+                localStorage.setItem("token", resp.data.token);
+                dispatch(setUser(resp.data.user))
+            }
         })
         
     }

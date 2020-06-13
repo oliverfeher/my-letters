@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../Redux/actions/user";
-import WaterMelon from "../images/watermelon.png";
-import Apple from "../images/fruit.png"
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 

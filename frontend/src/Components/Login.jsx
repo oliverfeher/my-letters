@@ -49,7 +49,24 @@ class Login extends React.Component
             this.props.history.push("/dashboard");
             return null;
         }
-        else
+        else if(this.props.user === "error")
+        {
+            return (
+                <div id="login-signup-container">
+                    <h1>LOGIN</h1>
+                    <form id="login-signup" onSubmit={this.handleOnSubmit}>
+                        <label className="label-text">E-MAIL:</label>
+                        <input type="email" onChange={this.handleOnChangeEmail} value={this.state.email} className="input-field"/>
+                        <label className="label-text">PASSWORD:</label>
+                        <input type="password" onChange={this.handleOnChangePassword} value={this.state.password} className="input-field"/>
+                        <h2 style={{color: "red"}}>INVALID CREDITENTIALS</h2>
+                        <input type="submit" value="LOGIN"/>
+                        <Link to={"/signup"} className="sign-up-button">SIGNUP</Link>
+                    </form>
+                </div>
+            )
+        }
+        else 
         {
             return (
                 <div id="login-signup-container">
