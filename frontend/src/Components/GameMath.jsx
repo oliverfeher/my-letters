@@ -99,7 +99,7 @@ class GameMath extends React.Component
             <div id="math-game">
                 <h1 id="math-title">Solve the problem!</h1>
                 <h2>MATH</h2>
-                <h2>Scores: <span style={{color: "green"}}>{this.props.user.math_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.math_mistakes}</span></h2>
+                <h2 style={{marginBottom: "5%"}}>Scores: <span style={{color: "green"}}>{this.props.user.math_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.math_mistakes}</span></h2>
                 <div id="math-problem-container">
                     <h2 id="math-problem">{this.state.currentProblem.problem} = <span id="solution">???</span></h2>
                     <p id="result">RESULT</p>
