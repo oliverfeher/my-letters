@@ -16,6 +16,10 @@ class Api::UsersController < ApplicationController
             @user.increase_mistakes("math")
         when "math_score"
             @user.increase_scores("math")
+        when "letters_mistake"
+            @user.increase_mistakes("letters")
+        when "letters_score"
+            @user.increase_scores("letters")
         end
         render json: @user
     end

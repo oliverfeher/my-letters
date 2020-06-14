@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import WaterMelon from "../images/watermelon.png";
-import Apple from "../images/fruit.png"
+import { connect } from "react-redux";
+import { updateUser } from "../Redux/actions/user";
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
@@ -58,6 +59,7 @@ class GameLetters extends React.Component
             {
                 console.log(voiceResult)
                 word[counter].style.color = "green";
+                this.props.updateUser("letters_score");
                 if(counter < word.length)
                 {
                     counter += 1;
@@ -71,6 +73,7 @@ class GameLetters extends React.Component
             {
                 console.log(voiceResult)
                 word[counter].style.color = "red";
+                this.props.updateUser("letters_mistake");
                 if(counter < word.length)
                 {
                     counter += 1;
@@ -104,9 +107,15 @@ class GameLetters extends React.Component
     render()
     {
         return (
-            <div id="game">
-                <img src={WaterMelon} className="game-img"></img>
-                <div id="game-word-container">{this.renderWord("watermelon")}</div>
+            <div id="math-game">
+                <h1 id="letters-title">Spell the word!</h1>
+                <h2>SPELLING</h2>
+                <h2 style={{marginBottom: "5%"}}>Scores: <span style={{color: "green"}}>{this.props.user.letters_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.letters_mistakes}</span></h2>
+
+                <div id="letters-problem-container">
+                    <img src={WaterMelon} className="game-img"></img>
+                    <div id="game-word-container">{this.renderWord("watermelon")}</div>
+                </div>
                 <p id="play" onClick={this.handleOnStart}>PLAY</p>
                 <Link to={"/categories"} className="back-button">EXIT</Link>
             </div>
@@ -114,4 +123,4 @@ class GameLetters extends React.Component
     }
 }
 
-export default GameLetters;
+export default connect(({user}) => {return {user}}, { updateUser })(GameLetters);

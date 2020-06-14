@@ -57,6 +57,7 @@ class GameWords extends React.Component
                 <Link to={"/categories"} className="back-button">EXIT</Link>
             </div>
         )
+        
     }
 }
 
