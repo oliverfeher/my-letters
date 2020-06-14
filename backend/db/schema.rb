@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_05_31_042758) do
   create_table "problems", force: :cascade do |t|
     t.string "problem"
     t.integer "solution"
-    t.string "difficulty"
     t.string "category"
     t.string "url", default: ""
   end

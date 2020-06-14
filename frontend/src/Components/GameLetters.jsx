@@ -16,7 +16,6 @@ class GameLetters extends React.Component
     handleOnStart = () =>
     {
         let word = [...document.querySelectorAll(".word-letters")];
-        console.log(counter);
         if(counter === 0)
         {
             this.spellCheck();
@@ -55,9 +54,9 @@ class GameLetters extends React.Component
             {
                 voiceResult = "N"
             }
+            
             if(word[counter].innerText === voiceResult)
             {
-                console.log(voiceResult)
                 word[counter].style.color = "green";
                 this.props.updateUser("letters_score");
                 if(counter < word.length)
@@ -71,7 +70,6 @@ class GameLetters extends React.Component
             }
             else
             {
-                console.log(voiceResult)
                 word[counter].style.color = "red";
                 this.props.updateUser("letters_mistake");
                 if(counter < word.length)

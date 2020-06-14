@@ -76,13 +76,15 @@ html {
 }
 
 #game-word-container {
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: row;
 }
 
 
 .word-letters {
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 #category-section {

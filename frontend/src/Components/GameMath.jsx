@@ -38,7 +38,7 @@ class GameMath extends React.Component
 
     reset = () =>
     {
-        document.querySelector("#solution").innerText = "???";
+        document.querySelector("#solution").innerText = "??";
         document.querySelector("#result").innerText = "RESULT";
         document.querySelector("#result").style.color = "black";
         document.querySelector("#math-problem-container").style.borderColor = "black";
@@ -101,7 +101,7 @@ class GameMath extends React.Component
                 <h2>MATH</h2>
                 <h2 style={{marginBottom: "5%"}}>Scores: <span style={{color: "green"}}>{this.props.user.math_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.math_mistakes}</span></h2>
                 <div id="math-problem-container">
-                    <h2 id="math-problem">{this.state.currentProblem.problem} = <span id="solution">???</span></h2>
+                    <h2 id="math-problem">{this.state.currentProblem.problem} = <span id="solution">??</span></h2>
                     <p id="result">RESULT</p>
                 </div>
                 <p id="play" onClick={this.handleOnStart}>PLAY</p>
