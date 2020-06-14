@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_05_31_042758) do
     t.string "problem"
     t.integer "solution"
     t.string "difficulty"
+    t.string "category"
+    t.string "url", default: ""
   end
 
   create_table "users", force: :cascade do |t|

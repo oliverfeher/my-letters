@@ -4,6 +4,8 @@ class CreateMath < ActiveRecord::Migration[6.0]
       t.string :problem
       t.integer :solution
       t.string :difficulty
+      t.string :category
+      t.string :url, :default => ""
     end
   end
 end
