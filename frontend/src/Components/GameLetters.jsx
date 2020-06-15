@@ -86,6 +86,10 @@ class GameLetters extends React.Component
             {
                 voiceResult = "L"
             }
+            else if(voiceResult === "WHY")
+            {
+                voiceResult = "Y"
+            }
             else if(voiceResult === "AR")
             {
                 voiceResult = "R"

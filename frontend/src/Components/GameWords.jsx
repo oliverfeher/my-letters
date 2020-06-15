@@ -54,7 +54,7 @@ class GameWords extends React.Component
             let voiceResult = event.results[0][0].transcript.toUpperCase()
             if(voiceResult === this.state.currentProblem.problem.toUpperCase())
             {
-               document.querySelector("#solution").innerHTML = `This is a(n) ${voiceResult}!`;
+               document.querySelector("#solution").innerHTML = `Correct! <br> ${voiceResult}`;
                document.querySelector("#solution").style.color = "green";
                this.props.updateUser("words_score");
                setTimeout(()=> {
@@ -65,7 +65,7 @@ class GameWords extends React.Component
             }
             else
             {
-                document.querySelector("#solution").innerHTML = `This is NOT a(n) ${voiceResult}!`;
+                document.querySelector("#solution").innerHTML = `Incorrect! <br> ${voiceResult}`;
                 document.querySelector("#solution").style.color = "red";
                 this.props.updateUser("words_mistake");
             }
