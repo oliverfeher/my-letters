@@ -7,4 +7,11 @@ class Api::ProblemsController < ApplicationController
         }
     end
 
+    def get_letters_problems
+        @letters_problems = Problem.all.select { |problem| problem.category === "letters" }
+        render json: {
+            problems: @letters_problems
+        }
+    end
+
 end

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     post "/login", to: "sessions#authenticate"
     patch "/users/:id", to: "users#update"
     get "/game/math-problems", to: "problems#get_math_problems"
+    get "/game/letters-problems", to: "problems#get_letters_problems"
   end
 end

@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../Redux/actions/user";
+
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
 
@@ -31,11 +33,13 @@ class GameMath extends React.Component
         }
     }
 
+    // GENERATE RANDOM NUMBER FROM 0 TO THE LENGTH OF THE PROBLEMS STATE
     getRandomNumber = () =>
     {
         return Math.floor(Math.random() * this.state.problems.length) + 0 
     }
 
+    // RESET GAME STYLING TO DEFAULT
     reset = () =>
     {
         document.querySelector("#solution").innerText = "??";
@@ -44,11 +48,13 @@ class GameMath extends React.Component
         document.querySelector("#math-problem-container").style.borderColor = "black";
     }
 
+    // RENDER RANDOM PROBLEM FROM STATE
     renderRandomProblem = () =>
     {
         this.setState({currentProblem: this.state.problems[this.getRandomNumber()]})
     }
 
+    // START GAME
     handleOnStart = () =>
     {
 
@@ -83,6 +89,7 @@ class GameMath extends React.Component
         }
     }
 
+    // RECORDING START/END
     spellCheck = () =>
     {
         recognition.start();
@@ -95,19 +102,26 @@ class GameMath extends React.Component
 
     render()
     {
-        return (
-            <div id="math-game">
-                <h1 id="math-title">Solve the problem!</h1>
-                <h2>MATH</h2>
-                <h2 style={{marginBottom: "5%"}}>Scores: <span style={{color: "green"}}>{this.props.user.math_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.math_mistakes}</span></h2>
-                <div id="math-problem-container">
-                    <h2 id="math-problem">{this.state.currentProblem.problem} = <span id="solution">??</span></h2>
-                    <p id="result">RESULT</p>
+        if(this.state.currentProblem !== "")
+        {
+            return (
+                <div id="math-game">
+                    <h1 id="math-title">Solve the problem!</h1>
+                    <h2>MATH</h2>
+                    <h2 style={{marginBottom: "5%"}}>Scores: <span style={{color: "green"}}>{this.props.user.math_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.math_mistakes}</span></h2>
+                    <div id="math-problem-container">
+                        <h2 id="math-problem">{this.state.currentProblem.problem} = <span id="solution">??</span></h2>
+                        <p id="result">RESULT</p>
+                    </div>
+                    <p id="play" onClick={this.handleOnStart}>PLAY</p>
+                    <Link to={"/categories"} className="back-button">EXIT</Link>
                 </div>
-                <p id="play" onClick={this.handleOnStart}>PLAY</p>
-                <Link to={"/categories"} className="back-button">EXIT</Link>
-            </div>
-        )
+            )
+        }
+        else
+        {
+            return <div>LOADING</div>
+        }
     }
 }
 
