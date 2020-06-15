@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import WaterMelon from "../images/watermelon.png";
+import { connect } from "react-redux";
+import { updateUser } from "../Redux/actions/user";
+
 import Apple from "../images/fruit.png"
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 const recognition = new SpeechRecognition();
@@ -15,7 +17,6 @@ class GameWords extends React.Component
     {
         super();
         this.state = {
-            correct: false
         }
     }
     handleOnStart = () =>
@@ -25,9 +26,15 @@ class GameWords extends React.Component
             let voiceResult = event.results[0][0].transcript.toUpperCase()
             if(voiceResult === "APPLE")
             {
-                this.setState({
-                    correct: true
-                })
+               document.querySelector("#solution").innerHTML = `This is a(n) ${voiceResult}!`;
+               document.querySelector("#solution").style.color = "green";
+               this.props.updateUser("words_score");
+            }
+            else
+            {
+                document.querySelector("#solution").innerHTML = `This is NOT a(n) ${voiceResult}!`;
+                document.querySelector("#solution").style.color = "red";
+                this.props.updateUser("words_mistake");
             }
         }
 
@@ -48,10 +55,13 @@ class GameWords extends React.Component
     render()
     {
         return (
-            <div id="game">
+            <div id="math-game">
+                <h1 id="letters-title">What is this?</h1>
+                <h2>WORDS</h2>
+                <h2 style={{marginBottom: "5%"}}>Scores: <span style={{color: "green"}}>{this.props.user.words_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.words_mistakes}</span></h2>
+                <div id="letters-problem-container">
                 <img src={Apple} className="game-img"></img>
-                <div id="game-word-container">
-                    {this.state.correct ? <p style={{color: "green"}}>Apple</p> : null}
+                <p id="solution" style={{fontSize: "2em"}}>SOLUTION</p>
                 </div>
                 <p id="play" onClick={this.handleOnStart}>PLAY</p>
                 <Link to={"/categories"} className="back-button">EXIT</Link>
@@ -61,4 +71,4 @@ class GameWords extends React.Component
     }
 }
 
-export default GameWords;
+export default connect(({user}) => {return {user}}, { updateUser })(GameWords);
