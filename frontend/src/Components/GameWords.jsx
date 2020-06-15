@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "../Redux/actions/user";
@@ -13,22 +15,53 @@ let recording = false;
 
 class GameWords extends React.Component
 {
-    constructor()
+    state = {
+        problems: [],
+        currentProblem: ""
+    };
+
+    componentDidMount = () =>
     {
-        super();
-        this.state = {
+        axios.get("http://localhost:3001/api/game/letters-problems")
+        .then(resp => 
+            this.setState({problems: resp.data.problems}))
+    }
+
+    getRandomNumber = () =>
+    {
+        let index = Math.floor(Math.random() * this.state.problems.length) + 0;
+        console.log(index);
+        return index; 
+    }
+
+    renderRandomProblem = () =>
+    {
+        this.setState({currentProblem: this.state.problems[this.getRandomNumber()]});
+    }
+
+    componentDidUpdate = () =>
+    {
+        if(this.state.currentProblem === "" )
+        {
+            this.renderRandomProblem()
         }
     }
+
     handleOnStart = () =>
     {   
         this.spellCheck();
         recognition.onresult = (event) => {
             let voiceResult = event.results[0][0].transcript.toUpperCase()
-            if(voiceResult === "APPLE")
+            if(voiceResult === this.state.currentProblem.problem.toUpperCase())
             {
                document.querySelector("#solution").innerHTML = `This is a(n) ${voiceResult}!`;
                document.querySelector("#solution").style.color = "green";
                this.props.updateUser("words_score");
+               setTimeout(()=> {
+                   document.querySelector("#solution").innerHTML = "SOLUTION";
+                   document.querySelector("#solution").style.color = "black";
+               }, 2000)
+               setTimeout(()=>this.renderRandomProblem(), 2000);
             }
             else
             {
@@ -60,7 +93,7 @@ class GameWords extends React.Component
                 <h2>WORDS</h2>
                 <h2 style={{marginBottom: "5%"}}>Scores: <span style={{color: "green"}}>{this.props.user.words_score}</span> Mistakes: <span style={{color: "red"}}>{this.props.user.words_mistakes}</span></h2>
                 <div id="letters-problem-container">
-                <img src={Apple} className="game-img"></img>
+                <img src={this.state.currentProblem.url} className="game-img"></img>
                 <p id="solution" style={{fontSize: "2em"}}>SOLUTION</p>
                 </div>
                 <p id="play" onClick={this.handleOnStart}>PLAY</p>
