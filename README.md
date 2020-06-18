@@ -3,7 +3,7 @@
 ## How to use
 If you dont already have an account sign up and and login to reach the user dashboard.
 
-![landing page](https://media.giphy.com/media/PkpJhOlA2QUFkMZXKA/giphy.gif)
+![landing page](https://media.giphy.com/media/j6MGkwRuTcSEKRwf5W/giphy.gif)
 
 ## ScoreBoard
 
