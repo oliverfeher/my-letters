@@ -26,6 +26,8 @@ There are currently three game categories in the game:
     
   - Word problems
     In this category you have to identify what you see on the given picture.
+    
+    ![categories](https://media.giphy.com/media/iEvD2dt7ijQ58VKglS/giphy.gif)
 
 ## License
 #### Copyright 2020 OLIVERFEHER
